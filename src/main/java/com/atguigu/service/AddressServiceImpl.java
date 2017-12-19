@@ -1,0 +1,29 @@
+package com.atguigu.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.atguigu.bean.T_MALL_ADDRESS;
+import com.atguigu.bean.T_MALL_USER_ACCOUNT;
+import com.atguigu.mapper.AddressMapper;
+import com.atguigu.util.MyRoutingDataSource;
+
+@Service
+public class AddressServiceImpl implements AddressService {
+	
+	@Autowired
+	private AddressMapper addressMapper;
+
+	@Override
+	public void insert_address(T_MALL_ADDRESS address) {
+		
+		addressMapper.insert_address(address);
+	}
+
+	@Override
+	public List<T_MALL_ADDRESS> select_addresses_by_user_id(T_MALL_USER_ACCOUNT user) {
+		return addressMapper.select_addresses_by_user_id(user);
+	}
+}

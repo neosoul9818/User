@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.atguigu.mapper.AddressMapper">
+	<!-- 
+	void insert_address(T_MALL_ADDRESS address);
+	 -->
+	 <insert id="insert_address" parameterType="com.atguigu.bean.T_MALL_ADDRESS">
+	 	INSERT INTO t_mall_address (yh_dz,dzzt,yh_id,shjr,lxfsh) 
+	 	VALUES(#{yh_dz},#{dzzt},#{yh_id},#{shjr},#{lxfsh})
+	 </insert>
+<!-- 	List<T_MALL_ADDRESS> select_addresses_by_user_id(T_MALL_USER_ACCOUNT user);
+	-->
+	<select id="select_addresses_by_user_id" resultType="com.atguigu.bean.T_MALL_ADDRESS">
+		SELECT * FROM t_mall_address WHERE yh_id =#{id}
+	</select>
+	<!-- T_MALL_ADDRESS select_addresses_by_id(int address_id); -->
+	<select id="select_addresses_by_id" resultType="com.atguigu.bean.T_MALL_ADDRESS">
+		SELECT * FROM t_mall_address WHERE id=#{id}
+	</select>
+</mapper>
